@@ -2,8 +2,27 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="800"
         x:Class="SurveyCreator.MainWindow"
         Title="SurveyCreator">
-    Welcome to Avalonia!
+        <StackPanel>
+                <TextBox x:Name="QuestionTitle" Watermark="Podaj tresc pytania"/>
+                <TextBlock Text="Podaj kategorię pytania"/>
+                <RadioButton x:Name="Common" GroupName="AnswerCategory" Content="Ogólny"/>
+                <RadioButton x:Name="Personal" GroupName="AnswerCategory" Content="Osobisty"/>
+                <TextBlock Text="Ile odpowiedzi dla pytania?"/>
+                <RadioButton x:Name="Single" GroupName="AnswerQuantity" Content="Pojedynczy"/>
+                <RadioButton x:Name="Multiple" GroupName="AnswerQuantity" Content="Wielokrotny"/>
+                <TextBlock Text="Odpowiedzi do wyboru:"/>
+                <CheckBox x:Name="Option1" Content="Tak"/>
+                <CheckBox x:Name="Option2" Content="Nie wiem"/>
+                <CheckBox x:Name="Option3" Content="Nie"/>
+                <Button x:Name="AddQuestion" Content="Dodaj pytanie" Click="AddQuestion_OnClick"/>
+                <ListBox x:Name="QuestionListBox" SelectionChanged="QuestionListBox_OnSelectionChanged"/>
+                <ComboBox x:Name="QuestionComboBox" SelectionChanged="QuestionComboBox_OnSelectionChanged">
+                        <ComboBoxItem Content="Ogólne"/>
+                        <ComboBoxItem Content="Osobiste"/>
+                </ComboBox>
+                <Button x:Name="SaveToFileButton" Content="Zapisz ankietę" Click="SaveToFileButton_OnClick"/>
+        </StackPanel>
 </Window>
